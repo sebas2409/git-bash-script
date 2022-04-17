@@ -6,7 +6,7 @@ visibility=$2
 
 if [ -z "$name" || -z "$visibility" ]
 then
-      echo "Es necesario introducir el nombre del repo para hacer el push"
+      echo "ERROR fcommit <nombreRepo> <Visibilidad>"
 else
       git init 
       git add .
@@ -14,4 +14,7 @@ else
       gh repo create -s=. --$visibility --remote=$name --push  
 
 fi
+
+
+
      

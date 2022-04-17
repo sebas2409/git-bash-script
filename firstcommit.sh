@@ -1,15 +1,17 @@
 #! /bin/sh
 
-url=$1
+name=$1
+visibility=$2
 
-if [-z "$url"]
+
+if [ -z "$name" || -z "$visibility" ]
 then
-     echo " Es necesario introducir la url para poder hacer el push"
+      echo "Es necesario introducir el nombre del repo para hacer el push"
 else
-     git init
-     git add .
-     git remote add origin $url 
-     git commit -m "first commit"
-     git push -u origin main
+      git init 
+      git add .
+      git commit -m "first commit"
+      gh repo create -s=. --$visibility --remote=$name --push  
+
 fi
      
